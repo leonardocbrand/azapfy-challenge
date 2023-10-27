@@ -1,3 +1,31 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["@trybe/eslint-config-frontend/typescript", "next/core-web-vitals"],
+  "rules": {
+    "no-alert": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "./app/**/*.ts"
+      ],
+      "rules": {
+        "max-len": [
+          "error",
+          {
+            "code": 90,
+            "ignoreComments": true,
+            "ignoreUrls": true,
+            "ignoreRegExpLiterals": true,
+            "ignoreStrings": true
+          }
+        ],
+        "max-lines": [
+          "off"
+        ],
+        "no-magic-numbers": [
+          "off"
+        ]
+      }
+    }
+  ]
 }
