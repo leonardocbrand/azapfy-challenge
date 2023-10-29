@@ -3,7 +3,7 @@
 import { useUserStore } from '@/store/user';
 
 export default function Dashboard() {
-  const { state: { login } } = useUserStore();
+  const userLogin = useUserStore((state) => state.state.login);
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
@@ -17,7 +17,7 @@ export default function Dashboard() {
           items-center
           lg:flex"
       >
-        <h1>{`Login ${login}`}</h1>
+        <h1>{`Login ${userLogin}`}</h1>
       </div>
     </main>
   );

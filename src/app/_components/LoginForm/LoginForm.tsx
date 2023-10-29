@@ -9,11 +9,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 function LoginForm() {
   const router = useRouter();
-  const { actions: { setUser } } = useUserStore();
+  const setUser = useUserStore(((state) => state.actions.setUser));
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-    console.log(data);
     setUser(data.login);
     router.push('/dashboard');
   };
