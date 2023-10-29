@@ -1,23 +1,41 @@
+'use client';
+
+import { Inputs } from '@/app/types';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
+import { useUserStore } from '@/store/user';
+import { useRouter } from 'next/navigation';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-type LoginFormProps = {
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-};
+function LoginForm() {
+  const router = useRouter();
+  const { actions: { setUser } } = useUserStore();
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
 
-function LoginForm({ handleSubmit, handleChange }: LoginFormProps) {
+  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
+    console.log(data);
+    setUser(data.login);
+    router.push('/dashboard');
+  };
+
   return (
     <form
-      onSubmit={ handleSubmit }
+      onSubmit={ handleSubmit(onSubmit) }
       className="flex flex-col gap-6 text-gray-400"
     >
-      <Input handleChange={ handleChange } name="user">
+      <Input register={ register('login', { required: true }) } type="text">
         Usuário
       </Input>
-      <Input handleChange={ handleChange } name="password">
+      {errors.login && (
+        <span className="text-[11px] text-red-400 ">Usuário é obrigatório</span>)}
+      <Input
+        register={ register('password', { required: true }) }
+        type="password"
+      >
         Senha
       </Input>
+      {errors.password && (
+        <span className="text-[11px] text-red-400 ">Senha é obrigatório</span>)}
       <Button type="submit">
         Entrar
       </Button>

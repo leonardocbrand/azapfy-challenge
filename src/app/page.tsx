@@ -1,16 +1,9 @@
 import { Title } from '@/components/Title';
 import Image from 'next/image';
-import { LoginForm } from './components/LoginForm';
+import { LoginForm } from './_components/LoginForm';
 import heroesImg from '../../public/heroes.jpg';
 
 export default function Home() {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
   return (
     <main
       className="

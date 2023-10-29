@@ -1,17 +1,18 @@
+import { UseFormRegisterReturn } from 'react-hook-form';
+
 type InputProps = {
   children: React.ReactNode
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  name: string
+  type: string
+  register: UseFormRegisterReturn
 };
 
-function Input({ children, handleChange, name }: InputProps) {
+function Input({ children, type, register }: InputProps) {
   return (
     <label className="flex flex-col group h-16">
       { children }
       <input
-        onChange={ handleChange }
-        name={ name }
-        type="text"
+        { ...register }
+        type={ type }
         className="
         h-10
         bg-zinc-800

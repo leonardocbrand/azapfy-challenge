@@ -1,4 +1,10 @@
-export default function Home() {
+'use client';
+
+import { useUserStore } from '@/store/user';
+
+export default function Dashboard() {
+  const { state: { login } } = useUserStore();
+
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
       <div
@@ -11,7 +17,7 @@ export default function Home() {
           items-center
           lg:flex"
       >
-        <h1>Teste 22</h1>
+        <h1>{`Login ${login}`}</h1>
       </div>
     </main>
   );
