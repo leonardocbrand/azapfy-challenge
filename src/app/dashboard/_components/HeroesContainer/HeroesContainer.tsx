@@ -45,12 +45,29 @@ function HeroesContainer({ data }: HeroesContainerProps) {
   return (
     <Stack
       direction="row"
-      spacing={ 20 }
-      flexWrap="wrap"
-      alignItems="center"
       justifyContent="center"
+      alignItems="center"
+      mt={ 10 }
+      gap={ 4 }
+      flexWrap="wrap"
       width="70%"
-      p={ 5 }
+      overflow="auto"
+      sx={ {
+        '&::-webkit-scrollbar': {
+          width: '0.8rem',
+        },
+        '&::-webkit-scrollbar-track': {
+          background: 'transparent',
+          backgroundClip: 'content-box',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: '#5356FB',
+          borderRadius: '5px',
+          border: '3px solid transparent',
+          height: '2rem',
+          backgroundClip: 'content-box',
+        },
+      } }
     >
       {heroes.length === 0
         ? <CircularProgress />
