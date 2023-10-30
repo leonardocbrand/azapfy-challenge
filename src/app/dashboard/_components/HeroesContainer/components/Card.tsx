@@ -14,13 +14,16 @@ type CardProps = {
 };
 
 function Card({ imgAlt, imgSrc, name, powerstats, handleClick, selected }: CardProps) {
-  const cardColor = getHeroCardColor(powerstats);
+  const [bgColor, borderColor] = getHeroCardColor(powerstats);
 
   return (
     <Stack
-      border={ selected ? 5 : 1 }
-      sx={ { background: cardColor, cursor: 'pointer' } }
+      sx={ {
+        background: bgColor,
+        cursor: 'pointer',
+        borderColor: `${selected ? 'rgb(252,252,252)' : borderColor}` } }
       borderRadius={ 3 }
+      border={ selected ? 3 : 2 }
       onClick={ handleClick }
       alignItems="center"
       width={ 200 }
@@ -30,7 +33,9 @@ function Card({ imgAlt, imgSrc, name, powerstats, handleClick, selected }: CardP
         component="img"
         src={ imgSrc }
         alt={ imgAlt }
-        sx={ { borderRadius: '0 0 10px 10px' } }
+        sx={ {
+          borderRadius: '0 0 10px 10px',
+          boxShadow: `0px 0px 20px 5px ${borderColor}` } }
       />
       <Typography
         color="#A3A994"
