@@ -3,6 +3,7 @@
 import { useHeroesStore } from '@/store/heroes';
 import { Box, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
+import SearchIcon from '@mui/icons-material/Search';
 
 function InputBar() {
   const setFilteredHeroes = useHeroesStore((state) => state.actions.setFilteredHeroes);
@@ -23,6 +24,11 @@ function InputBar() {
         variant="outlined"
         fullWidth
         value={ search }
+        InputProps={ {
+          startAdornment: (
+            <SearchIcon />
+          ),
+        } }
         onChange={ (e) => setSearch(e.target.value) }
       />
     </Box>
