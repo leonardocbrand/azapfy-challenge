@@ -2,7 +2,7 @@ import { Heroes } from '@/app/types';
 
 const getHeroes = async (): Promise<Heroes[]> => {
   const response = await fetch('http://homologacao3.azapfy.com.br/api/ps/metahumans');
-  const data = await response.json();
+  const data = response.json();
 
   return data;
 };

@@ -1,24 +1,37 @@
 'use client';
 
-import { useUserStore } from '@/store/user';
+import { Container } from '@mui/material';
+import { useEffect } from 'react';
+import { useHeroesStore } from '@/store/heroes';
+import getHeroes from '@/services/getHeroes';
+import { HeroesContainer } from './_components/HeroesContainer';
+import InputBar from './_components/InputBar';
 
 export default function Dashboard() {
-  const userLogin = useUserStore((state) => state.state.login);
+  const setHeroes = useHeroesStore((state) => state.actions.setHeroes);
+  const heroes = useHeroesStore((state) => state.state.filteredHeroes);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getHeroes();
+      setHeroes(data);
+    };
+
+    getData();
+  }, []);
 
   return (
-    <main className="flex flex-col items-center justify-between min-h-screen p-24">
-      <div
-        className="z-10
-          justify-between
-          w-full
-          max-w-5xl
-          font-mono
-          text-sm
-          items-center
-          lg:flex"
-      >
-        <h1>{`Login ${userLogin}`}</h1>
-      </div>
-    </main>
+    <Container
+      component="main"
+      sx={ {
+        bgcolor: '#19191E',
+        height: '100vh',
+        minWidth: '100vw',
+        display: 'flex',
+        justifyContent: 'center' } }
+    >
+      <HeroesContainer data={ heroes } />
+      <InputBar />
+    </Container>
   );
 }

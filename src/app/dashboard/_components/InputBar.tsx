@@ -1,0 +1,32 @@
+'use client';
+
+import { useHeroesStore } from '@/store/heroes';
+import { Box, TextField } from '@mui/material';
+import { useEffect, useState } from 'react';
+
+function InputBar() {
+  const setFilteredHeroes = useHeroesStore((state) => state.actions.setFilteredHeroes);
+  const heroes = useHeroesStore((state) => state.state.heroes);
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    const filteredHeroes = heroes
+      .filter((hero) => hero.name.toLowerCase().includes(search.toLowerCase()));
+
+    setFilteredHeroes(filteredHeroes);
+  }, [search]);
+
+  return (
+    <Box width="15%" p={ 2 }>
+      <TextField
+        label="Search for a hero"
+        variant="outlined"
+        fullWidth
+        value={ search }
+        onChange={ (e) => setSearch(e.target.value) }
+      />
+    </Box>
+  );
+}
+
+export default InputBar;

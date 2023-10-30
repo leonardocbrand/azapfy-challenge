@@ -12,6 +12,7 @@ type StoreProps = {
 export const useUserStore = create<StoreProps>((set) => ({
   state: {
     login: '',
+    data: [],
   },
   actions: {
     setUser: (login) => set({ state: { login } }),
