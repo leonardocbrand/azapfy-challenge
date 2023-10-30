@@ -18,19 +18,23 @@ function InputBar() {
   }, [search]);
 
   return (
-    <Box width="15%" p={ 2 }>
-      <TextField
-        variant="outlined"
-        fullWidth
-        value={ search }
-        InputProps={ {
-          startAdornment: (
-            <SearchIcon />
-          ),
-        } }
-        onChange={ (e) => setSearch(e.target.value) }
-      />
-    </Box>
+    <TextField
+      variant="outlined"
+      size="small"
+      value={ search }
+      InputProps={ {
+        startAdornment: (
+          <SearchIcon />
+        ),
+      } }
+      onChange={ (e) => setSearch(e.target.value) }
+      sx={ {
+        borderRadius: '100%',
+        fieldset: {
+          borderRadius: '50px',
+        },
+      } }
+    />
   );
 }
 

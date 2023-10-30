@@ -28,8 +28,7 @@ export default function Dashboard() {
         bgcolor: '#19191E',
         height: '100vh',
         minWidth: '100vw',
-        display: 'flex',
-        justifyContent: 'center' } }
+        display: 'flex' } }
     >
       <HeroesContainer data={ heroes } />
       <CombatModal />
