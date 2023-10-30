@@ -17,10 +17,10 @@ function SideMenu() {
         display: 'flex',
         flexDirection: 'column',
         gap: 20,
-        p: 2 } }
+        p: 1 } }
     >
-      <Stack alignItems="center" spacing={ 1 }>
-        <AccountCircleIcon sx={ { fill: '#5456FB' } } fontSize="large" />
+      <Stack alignItems="center" spacing={ 1 } mt={ 2 }>
+        <AccountCircleIcon sx={ { fill: '#5456FB', fontSize: 50 } } />
         <Typography fontWeight={ 700 } fontStyle="italic">
           {user}
         </Typography>
