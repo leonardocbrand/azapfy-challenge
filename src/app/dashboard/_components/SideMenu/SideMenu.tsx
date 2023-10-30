@@ -1,18 +1,39 @@
 import { useUserStore } from '@/store/user';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Planet } from '@phosphor-icons/react';
+import DrawerMenu from './components/DrawerMenu';
 
 function SideMenu() {
   const user = useUserStore((state) => state.state.login);
-  return (
-    <Box component="aside">
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+
+  return (isMatch ? (<DrawerMenu />) : (
+    <Box
+      component="aside"
+      sx={ { bgcolor: '#111114',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 30,
+        p: 2 } }
+    >
       <Stack alignItems="center" spacing={ 1 }>
         <AccountCircleIcon sx={ { fill: '#5456FB' } } fontSize="large" />
         <Typography fontWeight={ 700 } fontStyle="italic">
           {user}
         </Typography>
       </Stack>
-    </Box>
+      <Button
+        variant="contained"
+        size="large"
+        fullWidth
+        startIcon={ <Planet size={ 28 } color="#FFF" weight="bold" /> }
+        sx={ { borderRadius: 3, fontWeight: 700 } }
+      >
+        Cartas
+      </Button>
+    </Box>)
   );
 }
 
