@@ -67,6 +67,7 @@ function HeroesContainer({ data }: HeroesContainerProps) {
           height: '2rem',
           backgroundClip: 'content-box',
         },
+        scrollBehavior: 'smooth',
       } }
     >
       {heroes.length === 0

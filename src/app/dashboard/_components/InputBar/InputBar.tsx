@@ -29,6 +29,7 @@ function InputBar() {
       } }
       onChange={ (e) => setSearch(e.target.value) }
       sx={ {
+        p: 2,
         borderRadius: '100%',
         fieldset: {
           borderRadius: '50px',

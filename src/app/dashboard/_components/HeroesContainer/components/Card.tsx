@@ -27,6 +27,7 @@ function Card({ imgAlt, imgSrc, name, powerstats, handleClick, selected }: CardP
       onClick={ handleClick }
       alignItems="center"
       width={ 200 }
+      spacing={ 1 }
       pb={ 1 }
     >
       <Box
@@ -41,15 +42,17 @@ function Card({ imgAlt, imgSrc, name, powerstats, handleClick, selected }: CardP
         color="#A3A994"
         fontStyle="italic"
         fontWeight="700"
+        fontSize={ 15 }
       >
-        { name }
+        { name.toUpperCase() }
       </Typography>
       <Box display="flex" alignContent="center" justifyContent="center" gap={ 1 }>
-        <Sword size={ 26 } color="#949494" weight="bold" />
+        <Sword size={ 24 } color="#949494" weight="bold" />
         <Typography
           color="#A3A994"
           fontStyle="italic"
           fontWeight="700"
+          fontSize={ 15 }
         >
           {powerstats}
         </Typography>

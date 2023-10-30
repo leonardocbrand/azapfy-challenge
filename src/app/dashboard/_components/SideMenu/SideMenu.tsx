@@ -11,11 +11,12 @@ function SideMenu() {
 
   return (isMatch ? (<DrawerMenu />) : (
     <Box
+      width={ 200 }
       component="aside"
       sx={ { bgcolor: '#111114',
         display: 'flex',
         flexDirection: 'column',
-        gap: 30,
+        gap: 20,
         p: 2 } }
     >
       <Stack alignItems="center" spacing={ 1 }>
@@ -29,7 +30,7 @@ function SideMenu() {
         size="large"
         fullWidth
         startIcon={ <Planet size={ 28 } color="#FFF" weight="bold" /> }
-        sx={ { borderRadius: 3, fontWeight: 700 } }
+        sx={ { borderRadius: 3, fontWeight: 700, textTransform: 'capitalize' } }
       >
         Cartas
       </Button>

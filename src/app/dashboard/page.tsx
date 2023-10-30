@@ -1,12 +1,13 @@
 'use client';
 
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useHeroesStore } from '@/store/heroes';
 import getHeroes from '@/services/getHeroes';
 import { HeroesContainer } from './_components/HeroesContainer';
 import { InputBar } from './_components/InputBar';
 import { CombatModal } from './_components/CombatModal';
+import { SideMenu } from './_components/SideMenu';
 
 export default function Dashboard() {
   const setHeroes = useHeroesStore((state) => state.actions.setHeroes);
@@ -22,7 +23,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Container
+    <Box
       component="main"
       sx={ {
         bgcolor: '#19191E',
@@ -30,9 +31,18 @@ export default function Dashboard() {
         minWidth: '100vw',
         display: 'flex' } }
     >
-      <HeroesContainer data={ heroes } />
+      <SideMenu />
+      <Box
+        display="flex"
+        width="100%"
+        flexDirection={ { xs: 'column-reverse', sm: 'row' } }
+        justifyContent={ { xs: 'center', sm: 'normal' } }
+        alignItems={ { xs: 'center', sm: 'normal' } }
+      >
+        <HeroesContainer data={ heroes } />
+        <InputBar />
+      </Box>
       <CombatModal />
-      <InputBar />
-    </Container>
+    </Box>
   );
 }

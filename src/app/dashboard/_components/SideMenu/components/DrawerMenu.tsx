@@ -37,7 +37,7 @@ function DrawerMenu() {
             size="large"
             fullWidth
             startIcon={ <Planet size={ 28 } color="#FFF" weight="bold" /> }
-            sx={ { borderRadius: 3, fontWeight: 700 } }
+            sx={ { borderRadius: 3, fontWeight: 700, textTransform: 'capitalize' } }
           >
             Cartas
           </Button>

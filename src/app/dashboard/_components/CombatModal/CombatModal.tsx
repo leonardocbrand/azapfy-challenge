@@ -27,6 +27,7 @@ function CombatModal() {
         position="absolute"
         justifyContent="center"
         textAlign="center"
+        width={ { xs: '90%', md: '50%' } }
         borderRadius={ 2 }
         p={ { xs: 2, md: 10 } }
         gap={ { xs: 3, md: 0 } }
