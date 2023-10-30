@@ -9,13 +9,22 @@ type CardProps = {
   imgAlt: string
   name: string
   powerstats: number
+  handleClick: () => void
+  selected: boolean
 };
 
-function Card({ imgAlt, imgSrc, name, powerstats }: CardProps) {
+function Card({ imgAlt, imgSrc, name, powerstats, handleClick, selected }: CardProps) {
   const cardColor = getHeroCardColor(powerstats);
 
   return (
-    <Box border={ 1 } p={ 2 } sx={ { bgcolor: cardColor } } borderRadius={ 3 }>
+    <Box
+      border={ selected ? 5 : 1 }
+      p={ 2 }
+      sx={ { bgcolor: cardColor } }
+      borderRadius={ 3 }
+      component="button"
+      onClick={ handleClick }
+    >
       <Box component="img" src={ imgSrc } alt={ imgAlt } />
       <Typography color="#A3A994">{ name }</Typography>
       <Box display="flex" alignContent="center" justifyContent="center">
