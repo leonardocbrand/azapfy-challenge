@@ -20,7 +20,6 @@ function InputBar() {
   return (
     <Box width="15%" p={ 2 }>
       <TextField
-        label="Search for a hero"
         variant="outlined"
         fullWidth
         value={ search }
