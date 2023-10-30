@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 import { useHeroesStore } from '@/store/heroes';
 import getHeroes from '@/services/getHeroes';
 import { HeroesContainer } from './_components/HeroesContainer';
-import InputBar from './_components/InputBar';
+import { InputBar } from './_components/InputBar';
+import { CombatModal } from './_components/CombatModal';
 
 export default function Dashboard() {
   const setHeroes = useHeroesStore((state) => state.actions.setHeroes);
@@ -31,6 +32,7 @@ export default function Dashboard() {
         justifyContent: 'center' } }
     >
       <HeroesContainer data={ heroes } />
+      <CombatModal />
       <InputBar />
     </Container>
   );
