@@ -36,7 +36,7 @@ export default function Dashboard() {
         display="flex"
         width="100%"
         flexDirection={ { xs: 'column-reverse', sm: 'row' } }
-        justifyContent={ { xs: 'center', sm: 'normal' } }
+        justifyContent={ { xs: 'center', sm: 'space-between' } }
         alignItems={ { xs: 'center', sm: 'normal' } }
       >
         <HeroesContainer data={ heroes } />
