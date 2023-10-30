@@ -28,14 +28,14 @@ function CombatModal() {
         justifyContent="center"
         textAlign="center"
         borderRadius={ 2 }
+        p={ { xs: 2, md: 10 } }
+        gap={ { xs: 3, md: 0 } }
         alignItems="center"
         sx={ { top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           bgcolor: 'background.paper',
-          border: '2px solid #000',
-          boxShadow: 24,
-          p: 4 } }
+          border: '2px solid #000' } }
       >
         <Typography variant="h6">
           <Typography
@@ -49,7 +49,7 @@ function CombatModal() {
           {' '}
           {winnerHero?.name}
         </Typography>
-        <Stack direction="row" spacing={ 30 }>
+        <Stack direction="row" spacing={ { xs: 20, md: 30 } }>
           {selectedHeroes.map((hero, index) => (
             <SelectedHeroCard
               key={ hero.id }
@@ -59,9 +59,14 @@ function CombatModal() {
             />
           ))}
         </Stack>
-        <Box position="absolute">
+        <Box position="absolute" mb={ { xs: 0, md: 3, lg: 0 } }>
           {powerstats?.map((state) => (
-            <Typography textTransform="capitalize" key={ state }>
+            <Typography
+              textTransform="capitalize"
+              fontWeight={ 700 }
+              key={ state }
+              fontSize={ { xs: 15, md: 16 } }
+            >
               {state}
             </Typography>
           ))}

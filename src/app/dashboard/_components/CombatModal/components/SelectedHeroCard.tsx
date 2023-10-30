@@ -10,7 +10,7 @@ type SelectedHeroCardProps = {
 
 function SelectedHeroCard({ hero, index, winnersPowerstats }: SelectedHeroCardProps) {
   return (
-    <Box key={ hero.id }>
+    <Box>
       <Box display="flex" justifyContent="center" alignItems="center" gap={ 2 }>
         {index === 1 && (
           <Stack>
@@ -25,9 +25,9 @@ function SelectedHeroCard({ hero, index, winnersPowerstats }: SelectedHeroCardPr
                 <CircleIcon
                   color={ winnersPowerstats[i] === state
                     ? 'success' : 'error' }
-                  fontSize="small"
+                  sx={ { width: { xs: 16, md: '20px' }, height: { xs: 16, md: '20px' } } }
                 />
-                <Typography width={ 30 }>
+                <Typography width={ { xs: 20, md: 30 } } fontSize={ { xs: 15, md: 16 } }>
                   {state as number}
                 </Typography>
               </Box>
@@ -45,20 +45,24 @@ function SelectedHeroCard({ hero, index, winnersPowerstats }: SelectedHeroCardPr
                 alignItems="center"
                 justifyContent="center"
               >
-                <Typography width={ 30 }>
+                <Typography width={ { xs: 20, md: 30 } } fontSize={ { xs: 15, md: 16 } }>
                   {state as number}
                 </Typography>
                 <CircleIcon
                   color={ winnersPowerstats[i] === state
                     ? 'success' : 'error' }
-                  fontSize="small"
+                  sx={ { width: { xs: 16, md: '20px' }, height: { xs: 16, md: '20px' } } }
                 />
               </Box>
             ))}
           </Stack>
         )}
       </Box>
-      <Typography textAlign={ index === 0 ? 'start' : 'end' } mt={ 2 }>
+      <Typography
+        textAlign={ index === 0 ? 'start' : 'end' }
+        mt={ { xs: 1, md: 2 } }
+        fontSize={ { xs: 14, md: 16 } }
+      >
         {hero.name}
       </Typography>
     </Box>
