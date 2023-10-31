@@ -3,6 +3,7 @@ import { Modal, Box, Typography, Stack } from '@mui/material';
 import { getWinnerHero } from '@/utils/getWinnerHero';
 import { getWinnersPowerstats } from '@/utils/getWinnerPowerstats';
 import SelectedHeroCard from './components/SelectedHeroCard';
+import combatModalBackground from '../../../../../public/backgroundImg.jpg';
 
 function CombatModal() {
   const selectedHeroes = useHeroesStore((state) => state.state.selectedHeroes);
@@ -27,15 +28,20 @@ function CombatModal() {
         position="absolute"
         justifyContent="center"
         textAlign="center"
-        width={ { xs: '90%', md: '50%' } }
-        borderRadius={ 2 }
-        p={ { xs: 2, md: 10 } }
-        gap={ { xs: 3, md: 0 } }
+        borderRadius={ 4 }
+        width={ { xs: '95%', sm: '80%', md: '70%', lg: '50%' } }
+        height="400px"
+        p={ 5 }
+        boxShadow={ 10 }
+        gap={ { xs: 2, sm: 0 } }
         alignItems="center"
-        sx={ { top: '50%',
+        sx={ {
+          top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          bgcolor: 'background.paper' } }
+          backgroundImage: `url(${combatModalBackground.src})`,
+          backgroundSize: 'cover',
+        } }
       >
         <Typography variant="h6">
           <Typography
@@ -59,7 +65,7 @@ function CombatModal() {
             />
           ))}
         </Stack>
-        <Box position="absolute" mb={ { xs: 0, md: 3, lg: 0 } }>
+        <Box position="absolute" mb={ { md: 1 } }>
           {powerstats?.map((state) => (
             <Typography
               textTransform="capitalize"
