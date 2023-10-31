@@ -33,7 +33,7 @@ Desenvolver o front-end de uma aplicação web que abrace a temática de heróis
 
 # Deploy
 
-<link>https://azapfy-challenge.vercel.app/</link> (Há que permitir o conteúdo inseguro pelo navegador para visualizar todo o conteúdo do site)
+<link>https://azapfy-challenge.vercel.app/</link> (Há que permitir o conteúdo inseguro nas configurações do navegador para visualizar todo o conteúdo do site)
 
 ## 📷 Preview:
 
