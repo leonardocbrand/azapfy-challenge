@@ -41,7 +41,7 @@ function Card({ imgAlt, imgSrc, name, powerstats, handleClick, selected }: CardP
         alt={ imgAlt }
         sx={ {
           borderRadius: '0 0 10px 10px',
-          boxShadow: `0px 0px 20px 5px ${borderColor}` } }
+          boxShadow: `0px 5px 20px 5px ${borderColor}` } }
       />
       <Typography
         color="#A3A994"
