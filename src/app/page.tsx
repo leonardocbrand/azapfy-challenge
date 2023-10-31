@@ -37,6 +37,7 @@ export default function Home() {
           src={ heroesImg }
           alt="Imagem de super-heróis dos quadrinhos"
           className="w-0 md:w-7/12 h-full bg-cover rounded-r-3xl"
+          loading="eager"
         />
       </section>
     </main>

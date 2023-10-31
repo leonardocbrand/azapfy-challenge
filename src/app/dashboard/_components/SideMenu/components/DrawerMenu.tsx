@@ -7,7 +7,11 @@ import { Box, Button, Drawer, IconButton, Stack, Typography } from '@mui/materia
 import { Planet } from '@phosphor-icons/react';
 import { useState } from 'react';
 
-function DrawerMenu() {
+type DrawerMenuProps = {
+  handleClick: () => void
+};
+
+function DrawerMenu({ handleClick }: DrawerMenuProps) {
   const [openDrawer, setOpenDrawer] = useState(false);
   const user = useUserStore((state) => state.state.login);
 
@@ -34,6 +38,7 @@ function DrawerMenu() {
           </Stack>
           <Button
             variant="contained"
+            onClick={ handleClick }
             size="large"
             fullWidth
             startIcon={ <Planet size={ 28 } color="#FFF" weight="bold" /> }

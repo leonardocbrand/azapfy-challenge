@@ -2,6 +2,8 @@ import { useUserStore } from '@/store/user';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Box, Button, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Planet } from '@phosphor-icons/react';
+import { useHeroesStore } from '@/store/heroes';
+import { Heroes } from '@/app/types';
 import DrawerMenu from './components/DrawerMenu';
 
 function SideMenu() {
@@ -9,7 +11,23 @@ function SideMenu() {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
-  return (isMatch ? (<DrawerMenu />) : (
+  const setShuffledHeroes = useHeroesStore((state) => state.actions.setShuffledHeroes);
+  const heroes = useHeroesStore((state) => state.state.heroes);
+
+  const handleClick = () => {
+    const shuffle = (array: Heroes[]) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    };
+
+    const shuffledHeroes = shuffle(heroes);
+    setShuffledHeroes(shuffledHeroes.slice(0, 300));
+  };
+
+  return (isMatch ? (<DrawerMenu handleClick={ handleClick } />) : (
     <Box
       width={ 200 }
       component="aside"
@@ -31,6 +49,7 @@ function SideMenu() {
         fullWidth
         startIcon={ <Planet size={ 28 } color="#FFF" weight="bold" /> }
         sx={ { borderRadius: 3, fontWeight: 700, textTransform: 'capitalize' } }
+        onClick={ handleClick }
       >
         Cartas
       </Button>

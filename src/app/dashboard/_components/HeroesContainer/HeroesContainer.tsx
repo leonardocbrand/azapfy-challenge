@@ -1,5 +1,3 @@
-'use client';
-
 import { CircularProgress, Stack } from '@mui/material';
 import { Heroes } from '@/app/types';
 import { useHeroesStore } from '@/store/heroes';
@@ -14,6 +12,8 @@ function HeroesContainer({ data }: HeroesContainerProps) {
   const heroes = useHeroesStore((state) => state.state.heroes);
   const setSelectedHeroes = useHeroesStore((state) => state.actions.setSelectedHeroes);
   const setModal = useHeroesStore((state) => state.actions.setModal);
+  const setFilteredHeroes = useHeroesStore((state) => state.actions.setFilteredHeroes);
+  const shuffledHeroes = useHeroesStore((state) => state.state.shuffledHeroes);
 
   const [selected, setSelected] = useState<Heroes[]>([]);
 
@@ -23,6 +23,10 @@ function HeroesContainer({ data }: HeroesContainerProps) {
       setModal(true);
     }
   }, [selected]);
+
+  useEffect(() => {
+    setFilteredHeroes(shuffledHeroes);
+  }, [shuffledHeroes]);
 
   const handleClick = (hero: Heroes) => {
     setSelected((prev) => {

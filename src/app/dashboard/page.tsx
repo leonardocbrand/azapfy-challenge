@@ -11,7 +11,7 @@ import { SideMenu } from './_components/SideMenu';
 
 export default function Dashboard() {
   const setHeroes = useHeroesStore((state) => state.actions.setHeroes);
-  const heroes = useHeroesStore((state) => state.state.filteredHeroes);
+  const filteredHeroes = useHeroesStore((state) => state.state.filteredHeroes);
 
   useEffect(() => {
     const getData = async () => {
@@ -39,7 +39,7 @@ export default function Dashboard() {
         justifyContent={ { xs: 'center', sm: 'space-between' } }
         alignItems={ { xs: 'center', sm: 'normal' } }
       >
-        <HeroesContainer data={ heroes } />
+        <HeroesContainer data={ filteredHeroes } />
         <InputBar />
       </Box>
       <CombatModal />
