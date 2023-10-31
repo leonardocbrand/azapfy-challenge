@@ -37,3 +37,6 @@ Desenvolver o front-end de uma aplicação web que abrace a temática de heróis
 #### Dashboard
 ![alt text](./public/previewImgs/tela2.png)
 
+![alt text](./public/previewImgs/tela3.png)
+
+
