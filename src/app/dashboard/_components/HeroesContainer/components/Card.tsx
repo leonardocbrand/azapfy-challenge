@@ -21,12 +21,17 @@ function Card({ imgAlt, imgSrc, name, powerstats, handleClick, selected }: CardP
       sx={ {
         background: bgColor,
         cursor: 'pointer',
-        borderColor: `${selected ? 'rgb(252,252,252)' : borderColor}` } }
+        borderColor: `${selected ? 'rgb(252,252,252)' : borderColor}`,
+        '&:hover': {
+          width: 220,
+          transition: 'all 0.35s ease-in-out',
+        },
+      } }
       borderRadius={ 3 }
       border={ selected ? 3 : 2 }
       onClick={ handleClick }
       alignItems="center"
-      width={ 200 }
+      width={ selected ? 220 : 200 }
       spacing={ 1 }
       pb={ 1 }
     >
