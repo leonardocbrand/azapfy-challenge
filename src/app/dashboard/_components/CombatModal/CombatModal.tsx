@@ -19,8 +19,6 @@ function CombatModal() {
     <Modal
       open={ modal }
       onClose={ () => setModal(false) }
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
     >
       <Box
         display="flex"
