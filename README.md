@@ -2,7 +2,7 @@
 
 # 🎯Objetivo:
 
-Desenvolver o front-end de uma aplicação web que abrace a temática de heróis.
+Desenvolver o front-end de uma aplicação web que abrace a temática de heróis, consumindo a API <link>http://homologacao3.azapfy.com.br/api/ps/metahumans</link>.
 
 ## 🔧 Foi desenvolvido:
 - Formulário de login
