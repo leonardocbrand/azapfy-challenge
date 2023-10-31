@@ -1,4 +1,4 @@
-import { CircularProgress, Stack } from '@mui/material';
+import { Box, CircularProgress, Stack } from '@mui/material';
 import { Heroes } from '@/app/types';
 import { useHeroesStore } from '@/store/heroes';
 import { useEffect, useState } from 'react';
@@ -46,6 +46,19 @@ function HeroesContainer({ data }: HeroesContainerProps) {
     });
   };
 
+  if (heroes.length === 0) {
+    return (
+      <Box
+        height="90vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
   return (
     <Stack
       direction="row"
@@ -54,7 +67,6 @@ function HeroesContainer({ data }: HeroesContainerProps) {
       mt={ 10 }
       gap={ 4 }
       flexWrap="wrap"
-      width="70%"
       overflow="auto"
       sx={ {
         '&::-webkit-scrollbar': {
@@ -74,19 +86,17 @@ function HeroesContainer({ data }: HeroesContainerProps) {
         scrollBehavior: 'smooth',
       } }
     >
-      {heroes.length === 0
-        ? <CircularProgress />
-        : (data.map((hero: Heroes) => (
-          <Card
-            handleClick={ () => handleClick(hero) }
-            key={ hero.id }
-            imgAlt={ hero.name }
-            imgSrc={ hero.images.sm }
-            name={ hero.name }
-            powerstats={ Object.values(hero.powerstats).reduce((a, b) => a + b) }
-            selected={ selected.includes(hero) }
-          />
-        )))}
+      {data.map((hero: Heroes) => (
+        <Card
+          handleClick={ () => handleClick(hero) }
+          key={ hero.id }
+          imgAlt={ hero.name }
+          imgSrc={ hero.images.sm }
+          name={ hero.name }
+          powerstats={ Object.values(hero.powerstats).reduce((a, b) => a + b) }
+          selected={ selected.includes(hero) }
+        />
+      ))}
     </Stack>
   );
 }

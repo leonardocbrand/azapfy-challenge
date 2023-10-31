@@ -35,12 +35,11 @@ export default function Dashboard() {
       <Box
         display="flex"
         width="100%"
-        flexDirection={ { xs: 'column-reverse', sm: 'row' } }
-        justifyContent={ { xs: 'center', sm: 'space-between' } }
-        alignItems={ { xs: 'center', sm: 'normal' } }
+        flexDirection="column"
+        alignItems="center"
       >
-        <HeroesContainer data={ filteredHeroes } />
         <InputBar />
+        <HeroesContainer data={ filteredHeroes } />
       </Box>
       <CombatModal />
     </Box>

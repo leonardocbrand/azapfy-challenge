@@ -20,6 +20,7 @@ function InputBar() {
   return (
     <TextField
       variant="outlined"
+      placeholder="Busque por um herói"
       size="small"
       value={ search }
       InputProps={ {
@@ -29,6 +30,7 @@ function InputBar() {
       } }
       onChange={ (e) => setSearch(e.target.value) }
       sx={ {
+        mt: 2,
         p: 2,
         borderRadius: '100%',
         fieldset: {

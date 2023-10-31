@@ -1,5 +1,3 @@
-'use client';
-
 import getHeroCardColor from '@/utils/getHeroCardColor';
 import { Box, Stack, Typography } from '@mui/material';
 import { Sword } from '@phosphor-icons/react';
