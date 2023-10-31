@@ -39,6 +39,7 @@ function CombatModal() {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
+          transition: 'all 1s ease-in-out',
           backgroundImage: `url(${combatModalBackground.src})`,
           backgroundSize: 'cover',
         } }
