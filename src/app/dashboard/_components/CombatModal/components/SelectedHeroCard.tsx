@@ -34,7 +34,13 @@ function SelectedHeroCard({ hero, index, winnersPowerstats }: SelectedHeroCardPr
             ))}
           </Stack>
         )}
-        <Box component="img" src={ hero.images.sm } alt={ hero.name } />
+        <Box
+          component="img"
+          src={ hero.images.sm }
+          alt={ hero.name }
+          width={ { sx: 150, md: 190 } }
+          height={ 210 }
+        />
         {index !== 1 && (
           <Stack>
             {Object.values(hero.powerstats).map((state, i) => (
