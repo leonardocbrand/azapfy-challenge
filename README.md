@@ -32,8 +32,8 @@ Desenvolver o front-end de uma aplicação web que abrace a temática de heróis
 ## 📷 Preview:
 
 #### Início
-![alt text](./preview/tela1.png)
+![alt text](./public/previewImgs/tela1.png)
 
-#### Palindromo
-![alt text](./preview/tela2.png)
+#### Dashboard
+![alt text](./public/previewImgs/tela2.png)
 
