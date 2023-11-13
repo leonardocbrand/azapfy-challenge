@@ -3,7 +3,7 @@
 
 # 🎯Objetivo:
 
-Desenvolver o front-end de uma aplicação web que abrace a temática de heróis, consumindo a API <link>http://homologacao3.azapfy.com.br/api/ps/metahumans</link>.
+Desenvolver o front-end de uma aplicação web que abrace a temática de heróis e criar minigame com sistema de batalha entre os heróis, a partir do consumo da API <link>http://homologacao3.azapfy.com.br/api/ps/metahumans</link>.
 
 ## 🔧 Foi desenvolvido:
 
